@@ -22,14 +22,16 @@ class PathService:
         try:
             network = Network("500px", "500px")
             network.from_nx(graph)
-            network.show("templates/servedgraph.html")
-            return 'servedgraph.html'
-        except nx.NetworkXNoPath:
-            return {"error": "Error rendering visualization"}
+            html = network.generate_html()
+            return html
+        except Exception as e:
+            return {"error": f"Error rendering visualization: {e}"}
     
     def visualize_path(self, origin: str, destination: str):
         try:
-            return self.visualize(self.get_path(origin, destination))
+            path = self.get_path(origin, destination)
+            subgraph = self.graphService.get().subgraph(path)
+            return self.visualize(subgraph)
         except:
             return {"error": "Error rendering visualization"}
         

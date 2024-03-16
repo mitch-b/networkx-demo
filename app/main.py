@@ -30,5 +30,6 @@ async def get_path(request: Request, origin: str, destination: str):
 @app.get("/graph/paths/{origin}/to/{destination}/visualize", response_class=HTMLResponse)
 async def get_path_visualization(request: Request, origin: str, destination: str):
     service = PathService()
-    graphHtmlPath = service.visualize_path(origin, destination)
-    return templates.TemplateResponse(graphHtmlPath, {"request": request})
+    html_content = service.visualize_path(origin, destination)
+    return HTMLResponse(content=html_content, status_code=200)
+
