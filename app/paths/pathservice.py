@@ -23,7 +23,7 @@ class PathService:
             network = Network("500px", "500px")
             network.from_nx(graph)
             network.show("templates/servedgraph.html")
-            return "servedgraph.html"
+            return 'servedgraph.html'
         except nx.NetworkXNoPath:
             return {"error": "Error rendering visualization"}
     
