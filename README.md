@@ -8,8 +8,7 @@ For learning purposes. Try in Codespaces!
 - [x] Use NetworkX to generate a graph
 - [ ] Load graph from file
 - [ ] Save graph to file
-- [ ] Use FastAPI to serve the graph
-- [ ] Provide visual endpoints to view subgraphs
+- [x] Provide visual endpoints to view subgraphs
 - [ ] Investigate more graph visualization options
 - [ ] Business rule engine for traversal rules
 
