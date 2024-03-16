@@ -17,6 +17,11 @@ class GraphService:
         graph.add_edge('B', 'E', weight=9)
         graph.add_edge('E', 'F', weight=1)
         graph.add_edge('F', 'G', weight=3)
+        graph.add_edge('A', 'H', weight=12)
+        graph.add_edge('A', 'I', weight=13)
+        graph.add_edge('H', 'I', weight=0.5)
+        graph.add_edge('I', 'J', weight=2)
+        graph.add_edge('E', 'J', weight=50)
         return graph
 
     def get(self):

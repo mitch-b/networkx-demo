@@ -33,3 +33,9 @@ async def get_path_visualization(request: Request, origin: str, destination: str
     html_content = service.visualize_path(origin, destination)
     return HTMLResponse(content=html_content, status_code=200)
 
+@app.get("/graph/visualize", response_class=HTMLResponse)
+async def get_path_visualization(request: Request):
+    service = PathService()
+    html_content = service.visualize(service.graphService.get())
+    return HTMLResponse(content=html_content, status_code=200)
+
