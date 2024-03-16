@@ -4,7 +4,7 @@
             "name": "Docker: Python - Fastapi",
             "type": "docker",
             "request": "launch",
-            "preLaunchTask": "docker debug",
+            "preLaunchTask": "docker-debug",
             "python": {
                 "pathMappings": [
                     {
