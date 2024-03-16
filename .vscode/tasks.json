@@ -14,7 +14,7 @@
 		},
 		{
 			"type": "docker-run",
-			"label": "docker-run: debug",
+			"label": "docker debug",
 			"dependsOn": [
 				"docker-build"
 			],
