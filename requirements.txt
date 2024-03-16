@@ -1,0 +1,6 @@
+azure-functions
+black   #code formatter
+fastapi
+pylint  #code linter
+typing_extensions
+uvicorn
