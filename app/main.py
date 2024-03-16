@@ -21,8 +21,14 @@ async def get_name(name: str):
     }
 
 @app.get("/graph/paths/{origin}/to/{destination}")
-async def get_path(origin: str, destination: str):
+async def get_path(request: Request, origin: str, destination: str):
     service = PathService()
     return { 
         "path": service.get_path(origin, destination) 
     }
+
+@app.get("/graph/paths/{origin}/to/{destination}/visualize", response_class=HTMLResponse)
+async def get_path(request: Request, origin: str, destination: str):
+    service = PathService()
+    graphHtmlPath = service.visualize_path(origin, destination)
+    return templates.TemplateResponse(graphHtmlPath, {"request": request})

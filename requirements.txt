@@ -5,3 +5,4 @@ pylint  #code linter
 typing_extensions
 uvicorn
 jinja2
+pyvis
