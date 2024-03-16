@@ -2,6 +2,17 @@
 
 For learning purposes. Try in Codespaces!
 
+## Proof of Concept Thoughts
+
+- [ ] Open repo & run
+- [ ] Use NetworkX to generate a graph
+- [ ] Load graph from file
+- [ ] Save graph to file
+- [ ] Use FastAPI to serve the graph
+- [ ] Provide visual endpoints to view subgraphs
+- [ ] Investigate more graph visualization options
+- [ ] Business rule engine for traversal rules
+
 ## Installation (Docker)
 
 ```bash
