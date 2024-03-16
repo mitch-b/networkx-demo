@@ -2,6 +2,8 @@ from fastapi import FastAPI, Request
 from fastapi.responses import HTMLResponse
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
+from app.graph.service import GraphService
+import networkx as nx
 
 app = FastAPI()
 
@@ -17,3 +19,13 @@ async def get_name(name: str):
     return {
         "name": name,
     }
+
+@app.get("/graph/paths/{origin}/to/{destination}")
+async def get_path(origin: str, destination: str):
+    service = GraphService()
+    graph = service.get()
+    try:
+        path = nx.shortest_path(graph, origin, destination)
+        return {"path": path}
+    except nx.NetworkXNoPath:
+        return {"error": "No path between these nodes"}
