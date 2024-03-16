@@ -20,14 +20,21 @@ async def get_name(name: str):
         "name": name,
     }
 
-@app.get("/graph/paths/{origin}/to/{destination}")
+@app.get("/graph/paths/shortest/{origin}/to/{destination}")
 async def get_path(request: Request, origin: str, destination: str):
     service = PathService()
     return { 
         "path": service.get_path(origin, destination) 
     }
 
-@app.get("/graph/paths/{origin}/to/{destination}/visualize", response_class=HTMLResponse)
+@app.get("/graph/paths/all/{origin}/to/{destination}")
+async def get_path(request: Request, origin: str, destination: str):
+    service = PathService()
+    return { 
+        "paths": service.get_paths(origin, destination) 
+    }
+
+@app.get("/graph/paths/shortest/{origin}/to/{destination}/visualize", response_class=HTMLResponse)
 async def get_path_visualization(request: Request, origin: str, destination: str):
     service = PathService()
     html_content = service.visualize_path(origin, destination)

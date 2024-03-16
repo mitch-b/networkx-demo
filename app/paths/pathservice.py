@@ -18,6 +18,15 @@ class PathService:
             # todo: what is typical python convention for shared error contract for all services?
             return {"error": "No path between these nodes"}
     
+    def get_paths(self, origin: str, destination: str):
+        try:
+            graph = self.graphService.get()
+            paths = nx.all_simple_paths(graph, origin, destination)
+            return paths
+        except nx.NetworkXNoPath:
+            # todo: what is typical python convention for shared error contract for all services?
+            return {"error": "No path between these nodes"}
+    
     def visualize(self, graph: Graph):
         try:
             network = Network("500px", "500px")
