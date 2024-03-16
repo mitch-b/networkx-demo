@@ -1,24 +1,16 @@
-from fastapi import FastAPI
+from fastapi import FastAPI, Request
 from fastapi.responses import HTMLResponse
+from fastapi.staticfiles import StaticFiles
+from fastapi.templating import Jinja2Templates
 
 app = FastAPI()
 
+app.mount("/static", StaticFiles(directory="static"), name="static")
+templates = Jinja2Templates(directory="templates")
+
 @app.get("/", response_class=HTMLResponse)
-async def read_items():
-    html_content = """
-    <html>
-        <head>
-            <title>NetworkX Demo</title>
-        </head>
-        <body>
-            <h1>Demos</h1>
-            <ul>
-                <li><a href="/hello/world">/hello/world</a></li>
-            </ul>
-        </body>
-    </html>
-    """
-    return HTMLResponse(content=html_content, status_code=200)
+async def index(request: Request):
+    return templates.TemplateResponse("index.html", {"request": request})
 
 @app.get("/hello/{name}")
 async def get_name(name: str):
