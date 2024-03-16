@@ -4,7 +4,7 @@ For learning purposes. Try in Codespaces!
 
 ## Proof of Concept Thoughts
 
-- [ ] Open repo & run
+- [x] Open repo & run
 - [ ] Use NetworkX to generate a graph
 - [ ] Load graph from file
 - [ ] Save graph to file
