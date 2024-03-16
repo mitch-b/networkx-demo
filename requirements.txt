@@ -1,4 +1,4 @@
-azure-functions
+networkx
 black   #code formatter
 fastapi
 pylint  #code linter
