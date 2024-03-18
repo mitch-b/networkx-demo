@@ -6,7 +6,7 @@ For learning purposes. Try in Codespaces!
 
 - [x] Open repo & run
 - [x] Use NetworkX to generate a graph
-- [ ] Load graph from file
+- [x] Load graph from file
 - [ ] Save graph to file
 - [x] Provide visual endpoints to view subgraphs
 - [ ] Investigate more graph visualization options
