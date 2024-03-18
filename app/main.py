@@ -2,6 +2,7 @@ from fastapi import FastAPI, Request
 from fastapi.responses import HTMLResponse
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
+from app.graph.graphservice import GraphService
 from app.paths.pathservice import PathService
 import networkx as nx
 
@@ -12,7 +13,10 @@ templates = Jinja2Templates(directory="templates")
 
 @app.get("/", response_class=HTMLResponse)
 async def index(request: Request):
-    return templates.TemplateResponse("index.html", {"request": request})
+    graphService = GraphService()
+    nodeA = graphService.get_random_node()
+    nodeB = graphService.get_random_node()
+    return templates.TemplateResponse("index.html", {"request": request, "nodeA": nodeA, "nodeB": nodeB})
 
 @app.get("/hello/{name}")
 async def get_name(name: str):

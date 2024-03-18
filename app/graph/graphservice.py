@@ -1,3 +1,4 @@
+import random
 import networkx as nx
 
 class GraphService:
@@ -28,3 +29,13 @@ class GraphService:
     def get(self):
         # Return the graph object
         return self.graph
+    
+    def get_random_node(self):
+        # Return another random node from the graph with random index (not 1)
+        # get node count
+        node_count = len(self.graph.nodes)
+        # get random index
+        random_index = random.randint(1, node_count-1)
+        # get node at random index
+        return list(self.graph.nodes)[random_index]
+        
