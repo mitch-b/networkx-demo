@@ -29,7 +29,7 @@ class PathService:
     
     def visualize(self, graph: Graph):
         try:
-            network = Network("500px", "500px")
+            network = Network("1200px", "1920px")
             network.from_nx(graph)
             html = network.generate_html()
             return html
