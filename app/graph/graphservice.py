@@ -38,4 +38,7 @@ class GraphService:
         random_index = random.randint(1, node_count-1)
         # get node at random index
         return list(self.graph.nodes)[random_index]
+    
+    def save_to_file(self):
+        nx.write_adjlist(self.graph, 'app/graph/privatedata/saved-graph.txt', delimiter='~')
         

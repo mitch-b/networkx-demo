@@ -50,3 +50,9 @@ async def get_path_visualization(request: Request):
     html_content = service.visualize(service.graphService.get())
     return HTMLResponse(content=html_content, status_code=200)
 
+@app.get("/graph/save-to-file")
+async def get_path_visualization(request: Request):
+    graphService = GraphService()
+    graphService.save_to_file()
+    return {}
+
